@@ -11,14 +11,14 @@ public class App {
 
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Rafael Villa\\OneDrive\\Área de Trabalho\\Engenharia De Software\\3 - SEMESTRE\\Desenvolvimento de Software\\_Ws\\Programação Java\\A1 - 28977262\\A1 - 28977262\\src\\alunos.csv"))) {
             String linha;
-            boolean primeiraLinha = true; // Adicionamos uma variável para controlar a primeira linha
+            boolean primeiraLinha = true; 
             while ((linha = br.readLine()) != null) {
                 if (primeiraLinha) {
                     primeiraLinha = false;
-                    continue; // Ignoramos a primeira linha
+                    continue; 
                 }   
                 String[] campos = linha.split(";");
-                int matricula = Integer.parseInt(campos[0]);
+                int matricula = Integer.parseInt(campos[0].trim());
                 String nome = campos[1];
                 double nota = Double.parseDouble(campos[2].replace(",", "."));
 
@@ -29,10 +29,7 @@ public class App {
             e.printStackTrace();
         }
 
-        // Agora temos a listaDeAlunos preenchida com os dados do arquivo CSV
-        // Continuaremos com o processamento e cálculos.
-
-        int totalAlunos = listaDeAlunos.size();
+    int totalAlunos = listaDeAlunos.size();
     int aprovados = 0;
     int reprovados = 0;
     double somaNotas = 0;
@@ -52,9 +49,7 @@ public class App {
     }
 
     double mediaGeral = somaNotas / totalAlunos;
-
-    // Agora temos os valores calculados (aprovados, reprovados, menorNota, maiorNota, mediaGeral)
-    // Continuaremos com a gravação no arquivo resumo.csv.
+    mediaGeral = Math.round(mediaGeral * 100.0) / 100.0;
 
     try (FileWriter fw = new FileWriter("resumo.csv")) {
         fw.write("Quantidade de alunos: " + totalAlunos + "\n");
