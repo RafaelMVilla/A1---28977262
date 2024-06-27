@@ -53,12 +53,12 @@ public class App {
 
     try (FileWriter fw = new FileWriter("resumo.csv")) {
         fw.write("Quantidade de alunos: " + totalAlunos + "\n");
-        fw.write("Aprovados: " + aprovados + "\n");
-        fw.write("Reprovados: " + reprovados + "\n");
+        fw.write("Alunos aprovados: " + aprovados + "\n");
+        fw.write("Alunos reprovados: " + reprovados + "\n");
         fw.write("Menor nota: " + menorNota + "\n");
         fw.write("Maior nota: " + maiorNota + "\n");
         fw.write("Média geral: " + mediaGeral + "\n");
-        System.out.println("Resultados gravados em resumo.csv.");
+        System.out.println("Gravação realizada com sucesso em: resumo.csv.");
     } catch (IOException e) {
         e.printStackTrace();
     }
